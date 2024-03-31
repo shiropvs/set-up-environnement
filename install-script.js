@@ -14,6 +14,25 @@ try {
     console.error("erreur lors de l'installation de Chalk : ", error);
 }
 
+console.log("installation de Composer pour la gestion des dépendances PHP...");
+try {
+    execSync('php -r "copy(\'https://getcomposer.org/installer\', \'composer-setup.php\');"');
+    execSync('php composer-setup.php');
+    execSync('php -r "unlink(\'composer-setup.php\');"');
+    console.log("Composer installé avec succès.");
+} catch (error) {
+    console.error("erreur lors de l'installation de Composer : ", error);
+}
+
+console.log("\ninstallation d'Angular CLI pour la création de projets Angular...");
+try {
+    execSync('npm install -g @angular/cli');
+    console.log("angular CLI installé avec succès.");
+} catch (error) {
+    console.error("erreur lors de l'installation d'Angular CLI : ", error);
+}
+
+
 console.log("\ninstallation de Open pour ouvrir les serveurs dans le navigateur ;)");
 try {
     execSync('npm install open');
